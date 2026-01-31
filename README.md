@@ -1,8 +1,22 @@
-# AI Impact Agent Sample Data
+﻿# AI Impact Agent Sample Data
 
-This repository contains synthetic GitHub/Jira-linked sample data for AI impact analysis.
+이 저장소는 **파이썬 영어 공부 B/E 과제(FastAPI)**의 개발 이력을 샘플로 구성한 저장소입니다.
 
-- Project key: AIPM
-- Period: 2026-02-01 to 2026-03-31
-- AI cutover date: 2026-03-01
-- Target effect after cutover: ~40% improvement in selected productivity/quality metrics
+- 프로젝트 키: `AIMP`
+- Jira 이슈 URL 베이스: `https://skykbw.atlassian.net/browse`
+- 분석 기간: `2026-02-01` ~ `2026-03-31`
+- AI 도입일: `2026-03-01`
+- 목표 효과: 도입 후 생산성/품질 지표 약 **40% 개선**
+
+## 샘플 생성 원칙
+
+- Jira/Commit/PR 메시지는 한국어 사용
+- 커밋 메시지와 PR 제목에 Jira Key(`AIMP-xx`) 포함
+- 도입 전(pre_ai) 대비 도입 후(post_ai)에서 다음 지표 개선을 가정
+
+## 목표 지표(요약)
+
+- 평균 리드타임: 60h -> 36h (40% 개선)
+- 평균 리뷰 라운드: 2.5 -> 1.5 (40% 개선)
+- 평균 변경 라인 수: 250 -> 150 (40% 개선)
+- CI 실패율: 20% -> 12% (40% 개선)
