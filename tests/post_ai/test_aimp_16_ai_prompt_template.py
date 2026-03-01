@@ -1,6 +1,6 @@
 ﻿from fastapi import HTTPException
 
-from app.features.aimp-16_ai-prompt-template import evaluate
+from app.features.aimp_16_ai_prompt_template import evaluate
 
 
 def test_evaluate_success() -> None:
