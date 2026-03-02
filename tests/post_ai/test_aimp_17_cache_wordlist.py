@@ -1,6 +1,6 @@
 ﻿from fastapi import HTTPException
 
-from app.features.aimp-17_cache-wordlist import evaluate
+from app.features.aimp_17_cache_wordlist import evaluate
 
 
 def test_evaluate_success() -> None:
