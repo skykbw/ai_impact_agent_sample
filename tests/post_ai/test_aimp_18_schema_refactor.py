@@ -1,6 +1,6 @@
 ﻿from fastapi import HTTPException
 
-from app.features.aimp-18_schema-refactor import evaluate
+from app.features.aimp_18_schema_refactor import evaluate
 
 
 def test_evaluate_success() -> None:
