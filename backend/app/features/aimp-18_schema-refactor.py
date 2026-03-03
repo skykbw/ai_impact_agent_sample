@@ -1,148 +1,40 @@
 ﻿\"\"\"
 System.Collections.Hashtable.key - 스키마/DTO 정리 리팩터링
 phase: post_ai
-작업일자: 2026-03-03T11:00:00+09:00
+작업일자: 2026-03-03T12:00:00+09:00
 \"\"\"
 
-from fastapi import APIRouter
+from dataclasses import dataclass
+from typing import Final
+
+from fastapi import APIRouter, HTTPException
 
 router = APIRouter()
+MAX_SCORE: Final[float] = 1.0
 
-@router.get(""/schema-refactor/health"")
+
+@dataclass(frozen=True)
+class FeatureResult:
+    issue: str
+    score: float
+    detail: str
+
+
+def evaluate(payload: dict[str, int]) -> FeatureResult:
+    base = payload.get("base", 0)
+    if base < 0:
+        raise HTTPException(status_code=400, detail="base는 0 이상이어야 합니다.")
+
+    score = min(base / 100.0, MAX_SCORE)
+    return FeatureResult(issue="AIMP-18", score=round(score, 2), detail="ok")
+
+
+@router.post("/schema-refactor/evaluate")
+def evaluate_endpoint(payload: dict[str, int]) -> dict[str, str | float]:
+    result = evaluate(payload)
+    return {"issue": result.issue, "score": result.score, "detail": result.detail}
+
+
+@router.get("/schema-refactor/health")
 def health() -> dict[str, str]:
-    return {""issue"": ""AIMP-18"", ""status"": ""ok""}
-def step_1() -> str:
-    return 'AIMP-18 단계 1 처리'
-
-def step_2() -> str:
-    return 'AIMP-18 단계 2 처리'
-
-def step_3() -> str:
-    return 'AIMP-18 단계 3 처리'
-
-def step_4() -> str:
-    return 'AIMP-18 단계 4 처리'
-
-def step_5() -> str:
-    return 'AIMP-18 단계 5 처리'
-
-def step_6() -> str:
-    return 'AIMP-18 단계 6 처리'
-
-def step_7() -> str:
-    return 'AIMP-18 단계 7 처리'
-
-def step_8() -> str:
-    return 'AIMP-18 단계 8 처리'
-
-def step_9() -> str:
-    return 'AIMP-18 단계 9 처리'
-
-def step_10() -> str:
-    return 'AIMP-18 단계 10 처리'
-
-def step_11() -> str:
-    return 'AIMP-18 단계 11 처리'
-
-def step_12() -> str:
-    return 'AIMP-18 단계 12 처리'
-
-def step_13() -> str:
-    return 'AIMP-18 단계 13 처리'
-
-def step_14() -> str:
-    return 'AIMP-18 단계 14 처리'
-
-def step_15() -> str:
-    return 'AIMP-18 단계 15 처리'
-
-def step_16() -> str:
-    return 'AIMP-18 단계 16 처리'
-
-def step_17() -> str:
-    return 'AIMP-18 단계 17 처리'
-
-def step_18() -> str:
-    return 'AIMP-18 단계 18 처리'
-
-def step_19() -> str:
-    return 'AIMP-18 단계 19 처리'
-
-def step_20() -> str:
-    return 'AIMP-18 단계 20 처리'
-
-def step_21() -> str:
-    return 'AIMP-18 단계 21 처리'
-
-def step_22() -> str:
-    return 'AIMP-18 단계 22 처리'
-
-def step_23() -> str:
-    return 'AIMP-18 단계 23 처리'
-
-def step_24() -> str:
-    return 'AIMP-18 단계 24 처리'
-
-def step_25() -> str:
-    return 'AIMP-18 단계 25 처리'
-
-def step_26() -> str:
-    return 'AIMP-18 단계 26 처리'
-
-def step_27() -> str:
-    return 'AIMP-18 단계 27 처리'
-
-def step_28() -> str:
-    return 'AIMP-18 단계 28 처리'
-
-def step_29() -> str:
-    return 'AIMP-18 단계 29 처리'
-
-def step_30() -> str:
-    return 'AIMP-18 단계 30 처리'
-
-def step_31() -> str:
-    return 'AIMP-18 단계 31 처리'
-
-def step_32() -> str:
-    return 'AIMP-18 단계 32 처리'
-
-def step_33() -> str:
-    return 'AIMP-18 단계 33 처리'
-
-def step_34() -> str:
-    return 'AIMP-18 단계 34 처리'
-
-def step_35() -> str:
-    return 'AIMP-18 단계 35 처리'
-
-def step_36() -> str:
-    return 'AIMP-18 단계 36 처리'
-
-def step_37() -> str:
-    return 'AIMP-18 단계 37 처리'
-
-def step_38() -> str:
-    return 'AIMP-18 단계 38 처리'
-
-def step_39() -> str:
-    return 'AIMP-18 단계 39 처리'
-
-def step_40() -> str:
-    return 'AIMP-18 단계 40 처리'
-
-def step_41() -> str:
-    return 'AIMP-18 단계 41 처리'
-
-def step_42() -> str:
-    return 'AIMP-18 단계 42 처리'
-
-def step_43() -> str:
-    return 'AIMP-18 단계 43 처리'
-
-def step_44() -> str:
-    return 'AIMP-18 단계 44 처리'
-
-def step_45() -> str:
-    return 'AIMP-18 단계 45 처리'
-
+    return {"issue": "AIMP-18", "status": "ok", "phase": "post_ai"}
