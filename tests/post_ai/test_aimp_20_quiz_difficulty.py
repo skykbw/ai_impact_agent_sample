@@ -1,6 +1,6 @@
 ﻿from fastapi import HTTPException
 
-from app.features.aimp-20_quiz-difficulty import evaluate
+from app.features.aimp_20_quiz_difficulty import evaluate
 
 
 def test_evaluate_success() -> None:
