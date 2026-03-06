@@ -1,6 +1,6 @@
 ﻿from fastapi import HTTPException
 
-from app.features.aimp-21_recommend-api import evaluate
+from app.features.aimp_21_recommend_api import evaluate
 
 
 def test_evaluate_success() -> None:
