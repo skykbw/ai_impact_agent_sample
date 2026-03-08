@@ -1,6 +1,6 @@
 ﻿from fastapi import HTTPException
 
-from app.features.aimp-23_test-data-builder import evaluate
+from app.features.aimp_23_test_data_builder import evaluate
 
 
 def test_evaluate_success() -> None:
