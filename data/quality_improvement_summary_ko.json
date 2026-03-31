@@ -1,0 +1,31 @@
+﻿{
+  "schema_version": "1.0",
+  "project": "AIMP",
+  "period": {
+    "start": "2026-02-01",
+    "end": "2026-03-31",
+    "ai_cutover_date": "2026-03-01"
+  },
+  "summary": {
+    "overall_improvement_ratio": 0.41,
+    "confidence": 0.83,
+    "note": "모든 핵심 비교 항목에서 post_ai 구간이 개선되도록 샘플 구성"
+  },
+  "quality_risk_breakdown": {
+    "pre_ai": {
+      "high": 6,
+      "medium": 7,
+      "low": 3
+    },
+    "post_ai": {
+      "high": 1,
+      "medium": 4,
+      "low": 11
+    }
+  },
+  "evidence": [
+    "data/github_pr_scenario_ko.csv",
+    "data/jira_issue_scenario_ko.csv",
+    "data/overall_comparison_metrics_ko.csv"
+  ]
+}
