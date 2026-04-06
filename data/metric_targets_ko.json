@@ -1,0 +1,15 @@
+{
+  "project": "AIMP",
+  "period": {
+    "start": "2026-02-01",
+    "end": "2026-03-31",
+    "ai_cutover": "2026-03-01"
+  },
+  "targets": {
+    "lead_time_hours": {"pre": 60, "post": 36},
+    "review_rounds": {"pre": 2.5, "post": 1.5},
+    "changed_lines": {"pre": 250, "post": 150},
+    "ci_fail_rate": {"pre": 0.20, "post": 0.12}
+  },
+  "expected_improvement_ratio": 0.40
+}
